@@ -21,6 +21,7 @@ const AppRoutes = () => {
   return routes;
 };
 
+
 const App = () => {
   return (
     <BrowserRouter>
