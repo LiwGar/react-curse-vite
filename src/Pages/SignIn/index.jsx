@@ -1,10 +1,10 @@
-function SingIn() {
+function SignIn() {
   
     return (
       <div className="bg-blue-400">
-          SingIn
+          SignIn
       </div>
     )
   }
   
-  export default SingIn
+  export default SignIn

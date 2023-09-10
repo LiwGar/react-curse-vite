@@ -3,8 +3,9 @@ import Home  from '../Home/Index';
  import MyAccount from '../Account/Index';
  import MyOrder from '../MyOrder/Index';
  import MyOrders from '../MyOrders/Index';
- import SingIn from '../SingIn';
- import NotFound from '../NotFound';
+ import SignIn from '../SignIn/index';
+ import NotFound from '../NotFound/index';
+ import Navbar from '../../Components/Navbar/Index'
  import './App.css';
 
 
@@ -15,7 +16,7 @@ const AppRoutes = () => {
     { path: '/my-account', element: <MyAccount />}, 
     { path: '/my-order', element: <MyOrder />}, 
     { path: '/my-orders', element: <MyOrders />}, 
-    { path: '/sing-in', element: <SingIn />}, 
+    { path: '/sign-in', element: <SignIn />}, 
     { path: '/*', element: <NotFound />}, 
   ])
   return routes;
@@ -26,6 +27,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <AppRoutes />
+      <Navbar />
     </BrowserRouter>
   )
 }
