@@ -1,12 +1,12 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
-import Home  from '../Home/Index';
- import MyAccount from '../Account/Index';
- import MyOrder from '../MyOrder/Index';
- import MyOrders from '../MyOrders/Index';
- import SignIn from '../SignIn/index';
- import NotFound from '../NotFound/index';
- import Navbar from '../../Components/Navbar/Index'
- import './App.css';
+import Home  from '../Home/index';
+import MyAccount from '../Account/index';
+import MyOrder from '../MyOrder/index';
+import MyOrders from '../MyOrders/index';
+import SignIn from '../SignIn/index';
+import NotFound from '../NotFound/index';
+import Navbar from '../../Components/Navbar/index'
+import './App.css';
 
 
 const AppRoutes = () => {
