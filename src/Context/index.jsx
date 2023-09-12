@@ -15,12 +15,15 @@ export const ShoppingCartProvider = ({children}) => {
 
     const [productToShow, setProductToShow] = useState({}); /* Product Detail, mostrar detalle del producto*/
 
+    const [cartProducts, setCartProducts] = useState([]); /* Shopping Car, agregar prductos al carrito*/
+
     return ( /* dentro del proveedor con value, proveemos a toda la app con la informacion del contador carrito*/
         <ShoppingCartContext.Provider value = {{ 
             count, setCount,
             openProductDetail, closeProductDetail,
             isProductDetailOpen,
             productToShow, setProductToShow,
+            cartProducts, setCartProducts
         }}> 
             {children}
         </ShoppingCartContext.Provider>
