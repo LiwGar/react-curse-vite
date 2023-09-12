@@ -1,4 +1,3 @@
-import { data } from "browserslist";
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../Context/index"
 
@@ -8,7 +7,8 @@ const Card = (data) => {
 
     return (
 
-        <div className="bg-white cursor-pointer w-64 h-68 rounded-lg">
+        <div onClick={() => context.openProductDetail()} 
+            className="bg-white cursor-pointer w-64 h-68 rounded-lg">
             <figure className="relative mb-2 w-full h-4/5">
                 <span alt="categoryCard" className="absolute bottom-0 left-0 m-2 px-3 py-0.5 bg-violet-400 rounded-lg text-black text-xs">{data.data.category}</span>
                 <img alt="imgCard" className="w-full h-full object-cover rounded-lg" src={data.data.image}/>
