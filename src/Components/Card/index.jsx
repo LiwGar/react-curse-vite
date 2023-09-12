@@ -1,13 +1,20 @@
 import { useContext } from "react";
-import { ShoppingCartContext } from "../../Context/index"
+import { ShoppingCartContext } from "../../Context/index";
+
 
 const Card = (data) => {
 
     const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
 
+    const showProduct = (productDetail) => {
+            context.openProductDetail()
+            context.setProductToShow(productDetail)  
+    }
+
+
     return (
 
-        <div onClick={() => context.openProductDetail()} 
+        <div onClick={() => showProduct(data.data)} 
             className="bg-white cursor-pointer w-64 h-68 rounded-lg">
             <figure className="relative mb-2 w-full h-4/5">
                 <span alt="categoryCard" className="absolute bottom-0 left-0 m-2 px-3 py-0.5 bg-violet-400 rounded-lg text-black text-xs">{data.data.category}</span>

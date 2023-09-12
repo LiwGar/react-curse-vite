@@ -9,7 +9,7 @@ const Navbar = () => {
     const activeStyle =  "text-sky-950 font-extrabold";
 
     return (
-        <nav className="flex justify-between items-center fixed z-10 w-full py-4 px-7 top-0 text-base
+        <nav className="flex justify-between items-center fixed z-10 w-full py-3 px-7 top-0 text-base
                       text-black bg-gradient-to-r from-green-500 to-violet-600">
             <ul className="flex items-center gap-4">
                 <li className="font-extrabold text-xl italic text-black">

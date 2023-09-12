@@ -1,7 +1,7 @@
 .productDetail {
-    background: #c3c5c2;
-    opacity: 0.9;
-    width: 360px;
-    height: calc(100vh - 60px);
-    top: 60px;
+    background: white;
+    opacity: 0.98;
+    width: 380px;
+    height: calc(100vh - 52px);
+    top: 52px;
 }
