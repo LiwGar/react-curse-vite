@@ -1,11 +1,13 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom';
+import { ShoppingCartProvider } from '../../Context/index';
 import Home  from '../Home/index';
 import MyAccount from '../Account/index';
 import MyOrder from '../MyOrder/index';
 import MyOrders from '../MyOrders/index';
 import SignIn from '../SignIn/index';
 import NotFound from '../NotFound/index';
-import Navbar from '../../Components/Navbar/index'
+import Navbar from '../../Components/Navbar/index';
+
 import './App.css';
 
 
@@ -25,10 +27,12 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <AppRoutes />
-      <Navbar />
-    </BrowserRouter>
+    <ShoppingCartProvider>
+      <BrowserRouter>
+        <AppRoutes />
+        <Navbar />
+      </BrowserRouter>
+    </ShoppingCartProvider>
   )
 }
 

@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { ShoppingCartContext } from "../../Context/index"
 
 const Navbar = () => {
+
+    const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
 
     const activeStyle =  "text-sky-950 font-extrabold";
 
@@ -82,7 +86,7 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    CAR 0
+                    CAR {context.count}
                 </li>
             </ul>
         </nav>
