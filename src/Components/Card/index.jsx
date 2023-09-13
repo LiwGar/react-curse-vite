@@ -9,12 +9,16 @@ const Card = (data) => {
     const showProduct = (productDetail) => {
         context.openProductDetail()
         context.setProductToShow(productDetail)  
+        context.closeCheckOutSideMenu()
     }
 
-    const addProductsToCart = (productData) => {
+    const addProductsToCart = (event, productData) => {
+        event.stopPropagation()
         context.setCount(context.count + 1)
-        context.setCartProducts([... context.cartProducts, productData])
-        
+        context.setCartProducts([...context.cartProducts, productData])
+        context.closeProductDetail()
+        context.openCheckOutSideMenu()
+        console.log("Cart: ", context.cartProducts)
     }
 
 
@@ -26,7 +30,7 @@ const Card = (data) => {
                 <span alt="categoryCard" className="absolute bottom-0 left-0 m-2 px-3 py-0.5 bg-violet-400 rounded-lg text-black text-xs">{data.data.category}</span>
                 <img alt="imgCard" className="w-full h-full object-cover rounded-lg" src={data.data.image}/>
                 <button alt="addButton" className="absolute top-0 right-0 flex justify-center items-center bg-green-300 w-7 h-7 rounded-full m-2 p-1"
-                        onClick={() => addProductsToCart(data.data)}>
+                        onClick={(event) => addProductsToCart(event, data.data)}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" 
                             strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />

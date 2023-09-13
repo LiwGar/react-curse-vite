@@ -1,0 +1,7 @@
+.checkOutSideMenu {
+    background: white;
+    opacity: 0.98;
+    width: 380px;
+    height: calc(100vh - 52px);
+    top: 52px;
+}
