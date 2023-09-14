@@ -8,7 +8,7 @@ const ProductDetail = () => {
 
     return (
         /*{context.isProductDetailOpen ? "flex" : "hidden" } significa que si tu valor es true (abierto) voy a colocarle flex, de lo contrario si es falso (cerrado) voy a colocarle hidden */
-        <aside className= {`${context.isProductDetailOpen ? "flex" : "hidden" } productDetail flex-col 
+        <aside className= {`${context.isProductDetailOpen ? "flex" : "hidden" } overflow-y-scroll productDetail flex-col 
                 fixed right-0 border border-violet-600 rounded-lg`}>
             <div className="flex justify-between items-center p-4">
                 <h2 alt="titleProductDetail" className="font-medium text-lg">Product detail</h2>
@@ -20,13 +20,13 @@ const ProductDetail = () => {
                     </svg>
                 </button>
             </div>
-            <figure className="px-2">
+            <figure className="p-2">
                 <img className="w-60 h-80 rounded-xl mx-auto"
                      src={context.productToShow.image}
                      alt={context.productToShow.title}/>
                      
             </figure>
-            <p className="flex flex-col  px-2">
+            <p className="flex flex-col  p-2">
                 <span className="font-bold text-sm">${context.productToShow.price}</span>
                 <span className="font-bold text-sm">{context.productToShow.title}</span>
                 <span className="text-xs" >{context.productToShow.description}</span>

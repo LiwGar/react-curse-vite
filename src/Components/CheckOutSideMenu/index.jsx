@@ -21,7 +21,7 @@ const CheckOutSideMenu= () => {
                     </svg>
                 </button>
             </div>
-            <div className="px-4">
+            <div className="px-4 overflow-y-scroll">
                 {
                     context.cartProducts.map(product => (
                         /*En este sideMenu pintame por cada uno de los producto que tengo en mi carrito estos elementos*/  
