@@ -32,7 +32,7 @@ const App = () => {
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
-        <CheckOutSideMenu/>
+        <CheckOutSideMenu />
       </BrowserRouter>
     </ShoppingCartProvider>
   )
