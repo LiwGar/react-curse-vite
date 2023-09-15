@@ -7,6 +7,11 @@ const CheckOutSideMenu= () => {
 
     const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
 
+    const handleDelete = (id) => {
+        const filteredProducts = context.cartProducts.filter(product => product.id != id)
+        context.setCartProducts(filteredProducts)
+    }
+
     return (
         /*{context.isProductDetailOpen ? "flex" : "hidden" } significa que si tu valor es true (abierto) voy a colocarle flex, de lo contrario si es falso (cerrado) voy a colocarle hidden */
         <aside className= {`${context.isCheckOutSideMenuOpen ? "flex" : "hidden" } checkOutSideMenu flex-col 
@@ -27,9 +32,11 @@ const CheckOutSideMenu= () => {
                         /*En este sideMenu pintame por cada uno de los producto que tengo en mi carrito estos elementos*/  
                         <OrderCard 
                         key={product.id}
+                        id={product.id}
                         title={product.title}
                         imageUrl={product.image}
                         price={product.price}
+                        handleDelete={handleDelete}
                         />
 
                     ))
