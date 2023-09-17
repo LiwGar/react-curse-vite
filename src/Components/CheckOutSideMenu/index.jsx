@@ -13,6 +13,18 @@ const CheckOutSideMenu= () => {
         context.setCartProducts(filteredProducts)
     }
 
+    const handleCheckout = () => {
+        const orderToAdd = {
+            date: "17.09.23",
+            products: context.cartProducts,
+            totalProducts: context.cartProducts.length,
+            totalPrice: totalPrice(context.cartProducts)
+        }
+        context.setOrder([...context.order, orderToAdd]);
+        context.setCartProducts([]);
+    }
+
+
     return (
         /*{context.isProductDetailOpen ? "flex" : "hidden" } significa que si tu valor es true (abierto) voy a colocarle flex, de lo contrario si es falso (cerrado) voy a colocarle hidden */
         <aside className= {`${context.isCheckOutSideMenuOpen ? "flex" : "hidden" } checkOutSideMenu flex-col 
@@ -27,7 +39,7 @@ const CheckOutSideMenu= () => {
                     </svg>
                 </button>
             </div>
-            <div className="px-4 overflow-y-scroll">
+            <div className="px-4 overflow-y-scroll flex-1">
                 {
                     context.cartProducts.map(product => (
                         /*En este sideMenu pintame por cada uno de los producto que tengo en mi carrito estos elementos*/  
@@ -47,7 +59,10 @@ const CheckOutSideMenu= () => {
                     <span>Total</span>
                     <span className="rigth-0">${totalPrice(context.cartProducts)}</span>
                 </p>
-            </div>         
+            </div>
+            <button onClick={() => handleCheckout()}
+                    className="w-full, m-4 py-3 bg-violet-600 text-white font-bold, "
+                    >Checkout</button>         
         </aside>
  
     )
