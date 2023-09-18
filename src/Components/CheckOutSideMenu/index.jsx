@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context/index";
 import OrderCard  from "../../Components/OrderCard/index";
 import { totalPrice } from "../../utils/index"
@@ -54,15 +55,18 @@ const CheckOutSideMenu= () => {
                     ))
                 }
             </div>
-            <div className="p-4">
-                <p className="flex justify-between items-center font-bold text-lg ">
+            <div className="px-4 mb-6">
+                <p className="flex justify-between items-center font-bold mb-6">
                     <span>Total</span>
-                    <span className="rigth-0">${totalPrice(context.cartProducts)}</span>
+                    <span>${totalPrice(context.cartProducts)}</span>
                 </p>
-            </div>
-            <button onClick={() => handleCheckout()}
-                    className="w-full, m-4 py-3 bg-violet-600 text-white font-bold, "
-                    >Checkout</button>         
+                <Link to= "/my-orders/last">
+                    <button onClick={() => handleCheckout()}
+                            className="w-full py-3 bg-violet-600 text-white font-bold">
+                        Checkout
+                    </button>  
+                </Link> 
+            </div>      
         </aside>
  
     )
@@ -70,3 +74,18 @@ const CheckOutSideMenu= () => {
 }
 
 export default CheckOutSideMenu;
+
+
+/**
+ * <div className="p-4">
+                <p className="flex justify-between items-center font-bold text-lg ">
+                    <span>Total</span>
+                    <span className="rigth-0">${totalPrice(context.cartProducts)}</span>
+                </p>
+            <Link to= "/my-orders/last">
+                <button onClick={() => handleCheckout()}
+                        className="w-full, m-4 py-3 bg-violet-600 text-white font-bold,">
+                    Checkout
+                </button>  
+            </Link> 
+ */
