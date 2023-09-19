@@ -24,7 +24,6 @@ function Order() {
                 />
               ))
              }
-               
           </div>
 
       </Layout>

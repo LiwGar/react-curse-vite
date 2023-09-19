@@ -25,7 +25,6 @@ const CheckOutSideMenu= () => {
         context.setCartProducts([]);
     }
 
-
     return (
         /*{context.isProductDetailOpen ? "flex" : "hidden" } significa que si tu valor es true (abierto) voy a colocarle flex, de lo contrario si es falso (cerrado) voy a colocarle hidden */
         <aside className= {`${context.isCheckOutSideMenuOpen ? "flex" : "hidden" } checkOutSideMenu flex-col 
