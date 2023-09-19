@@ -13,6 +13,7 @@ function Order() {
 
           <div className="flex flex-col w-[55%]">
             {
+              context.order && context.order.length > 0 ?
               context.order?.slice(-1)[0].products.map(product => (
                 /*En este sideMenu pintame por cada uno de los producto que tengo en mi carrito estos elementos*/  
                 <OrderCard 
@@ -23,6 +24,8 @@ function Order() {
                   price={product.price}
                 />
               ))
+              : 
+              <span className="flex justify-center p-4 text-sm">No orders placed</span>
              }
           </div>
 
