@@ -6,7 +6,7 @@ const Navbar = () => {
 
     const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
 
-    const activeStyle =  "text-sky-950 font-extrabold";
+    const activeStyle =  "text-black font-bold";
 
     return (
         <nav className="flex justify-between items-center fixed z-10 w-full py-3 px-7 top-0 text-base
