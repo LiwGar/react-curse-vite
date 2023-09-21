@@ -10,8 +10,8 @@ function MyOrders() {
 
     return (
       <Layout>
-        <div className="flex relative w-80 justify-center items-center">
-          <h1>My Orders</h1>
+        <div className="flex relative w-90 justify-center items-center">
+          <h1 className="font-medium text-lg mb-6">My Orders</h1>
         </div>
         {
           context.order.map((order, index) => (
@@ -24,6 +24,7 @@ function MyOrders() {
             </Link>
           ))
         }
+        
       </Layout>
     )
   }

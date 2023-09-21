@@ -7,6 +7,8 @@ import OrderCard  from "../../Components/OrderCard/index";
 
 function MyOrder() {
   const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
+  
+  //code para organizar el link al abrir cada orden
   const currentPath = window.location.pathname;
   let index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
 
@@ -28,7 +30,7 @@ function MyOrder() {
 
         <div className="flex flex-col py-14 w-[48%]">
           {
-            // context.order && context.order.length > 0 ?
+            
             context.order?.[index]?.products.map(product => (
               /*En este sideMenu pintame por cada uno de los producto que tengo en mi carrito estos elementos*/  
               <OrderCard 
@@ -39,8 +41,6 @@ function MyOrder() {
                 price={product.price}
               />
             ))
-            // : 
-            // <span className="flex justify-center p-4 text-sm">No orders placed</span>
           }
         </div>
 
