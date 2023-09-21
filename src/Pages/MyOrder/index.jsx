@@ -7,6 +7,11 @@ import Layout from '../../Components/Layout';
 
 function Order() {
   const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
+  const currentPath = window.location.pathname;
+  let index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+
+    if(index === "last") index = context.order?.length -1;
+
     
     return (
       <Layout>
@@ -43,6 +48,11 @@ function Order() {
     )
   }
   
-  export default Order
+  export default Order;
+
+  /**
+   * context.order && context.order.length > 0 ?
+            context.order?.slice(-1)[0].products.map(product => (
+   */
 
 

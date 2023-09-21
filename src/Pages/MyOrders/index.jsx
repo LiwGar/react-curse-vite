@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context/index";
 import Layout from '../../Components/Layout';
-import OrdersCard  from "../../Components/OrderCard";
+import OrdersCard  from "../../Components/OrdersCard/index";
 
 function MyOrders() {
   
@@ -13,19 +13,19 @@ function MyOrders() {
         <div className="flex relative w-80 justify-center items-center">
           <h1>My Orders</h1>
         </div>
-          {
-            context.order.map((order, index) => {
-              <Link key={index} to={`/my-orders${order.id}`}>
-                <OrdersCard  
-                  totalPrice={order.totalPrice} 
-                  totalProducts={order.totalProducts}
-                />
-              </Link>
-            })
-          }
-          
+        {
+          context.order.map((order, index) => (
+
+            <Link key={index} to={`/my-orders/${index}`}>
+              <OrdersCard  
+                totalPrice={order.totalPrice} 
+                totalProducts={order.totalProducts}
+              />
+            </Link>
+          ))
+        }
       </Layout>
     )
   }
   
-  export default MyOrders
+  export default MyOrders;
