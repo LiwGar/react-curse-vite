@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context";
-import OrderCard  from "../../Components/OrderCard/index";
 import Layout from '../../Components/Layout';
+import OrderCard  from "../../Components/OrderCard/index";
 
 
-function Order() {
+function MyOrder() {
   const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
   const currentPath = window.location.pathname;
   let index = currentPath.substring(currentPath.lastIndexOf('/') + 1);
@@ -28,8 +28,8 @@ function Order() {
 
         <div className="flex flex-col py-14 w-[48%]">
           {
-            context.order && context.order.length > 0 ?
-            context.order?.slice(-1)[0].products.map(product => (
+            // context.order && context.order.length > 0 ?
+            context.order?.[index]?.products.map(product => (
               /*En este sideMenu pintame por cada uno de los producto que tengo en mi carrito estos elementos*/  
               <OrderCard 
                 key={product.id}
@@ -39,8 +39,8 @@ function Order() {
                 price={product.price}
               />
             ))
-            : 
-            <span className="flex justify-center p-4 text-sm">No orders placed</span>
+            // : 
+            // <span className="flex justify-center p-4 text-sm">No orders placed</span>
           }
         </div>
 
@@ -48,7 +48,7 @@ function Order() {
     )
   }
   
-  export default Order;
+  export default MyOrder;
 
   /**
    * context.order && context.order.length > 0 ?
