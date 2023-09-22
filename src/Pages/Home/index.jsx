@@ -7,30 +7,49 @@ import ProductDetail from "../../Components/ProductDetail"
 function Home() {
 
   const context = useContext(ShoppingCartContext);
-  
+
+  const renderView = () => {
+    if (context.searchByTitle?.length > 0) {
+      if (context.filteredItems?.length > 0) {
+        return (
+          context.filteredItems?.map(item => (
+            <Card key={item.id} data={item} />
+          ))
+        )
+      } else {
+        return (
+          <p>We don't have anything :( </p>
+        )
+      }
+    } else {
+      return (
+        context.items?.map(item => (
+          <Card key={item.id} data={item} />
+        ))
+      )
+    }
+  }
+
     return (
       <Layout>
         <div className="flex relative w-90 justify-center gap-2">
           <h1 className="flex font-extrabold text-lg mb-6 italic">SHOPstr</h1>
           <h2 className="flex text-base mb-6 items-center">Exclusive Products</h2>
         </div>
+
         <input 
           type="text" 
           placeholder="Search a product"
-          className=" w-[70%] p-3 mb-6 border border-violet-600 rounded-lg ml-6 focus:outline-none"
+          className=" w-[50%] p-2 mb-6 border border-violet-600 rounded-lg ml-6 focus:outline-none"
           onChange={(event) => context.setSearchByTitle(event.target.value) }
-
         />
-        <div className='grid gap-10 grid-cols-4 w-full max-w-screen-lg'>
-          {
-            context.items?.map(item => {
-              return (
-                <Card key={item.id} data={item}/>
-              )
-            })
-          }
+
+        <div className='grid gap-12 grid-cols-4 w-full mb-16 max-w-screen-lg'>
+  
+          { renderView ()}
+
         </div>
-        <ProductDetail/>  
+        <ProductDetail />  
       </Layout>
     )
   }

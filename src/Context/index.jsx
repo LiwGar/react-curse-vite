@@ -45,8 +45,22 @@ export const ShoppingCartProvider = ({children}) => {
             .then(data => setItems(data)) 
         }, [])
 
-        //Get product by title
-        const [searchByTitle, setSearchByTitle] = useState(null) 
+    //Get product by title
+    const [searchByTitle, setSearchByTitle] = useState(null);
+
+    
+    //Filtered Items
+    const [filteredItems, setFilteredItems] = useState(null); 
+
+    const filteresItemByTitle = (items, searchByTitle) => {
+
+        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()));
+
+    }
+        useEffect (() => {
+            if (searchByTitle) setFilteredItems(filteresItemByTitle(items, searchByTitle))
+        }, [items, searchByTitle])
+
 
    
     return ( /* dentro del proveedor con value, proveemos a toda la app con la informacion del contador carrito*/
@@ -60,7 +74,8 @@ export const ShoppingCartProvider = ({children}) => {
             openCheckOutSideMenu, closeCheckOutSideMenu,
             order, setOrder,
             items, setItems,
-            searchByTitle, setSearchByTitle
+            searchByTitle, setSearchByTitle,
+            filteredItems, setFilteredItems
         }}> 
             {children}
         </ShoppingCartContext.Provider>
