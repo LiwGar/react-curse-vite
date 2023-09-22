@@ -52,13 +52,13 @@ export const ShoppingCartProvider = ({children}) => {
     //Filtered Items
     const [filteredItems, setFilteredItems] = useState(null); 
 
-    const filteresItemByTitle = (items, searchByTitle) => {
+    const filteredItemsByTitle = (items, searchByTitle) => {
 
         return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()));
 
     }
         useEffect (() => {
-            if (searchByTitle) setFilteredItems(filteresItemByTitle(items, searchByTitle))
+            if (searchByTitle) setFilteredItems(filteredItemsByTitle(items, searchByTitle))
         }, [items, searchByTitle])
 
 

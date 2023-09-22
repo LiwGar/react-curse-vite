@@ -40,11 +40,11 @@ function Home() {
         <input 
           type="text" 
           placeholder="Search a product"
-          className=" w-[50%] p-2 mb-6 border border-violet-600 rounded-lg ml-6 focus:outline-none"
+          className=" w-[50%] p-2 mb-6 border border-violet-600 rounded-lg ml-5 focus:outline-none"
           onChange={(event) => context.setSearchByTitle(event.target.value) }
         />
 
-        <div className='grid gap-12 grid-cols-4 w-full mb-16 max-w-screen-lg'>
+        <div className='grid gap-12 grid-cols-4 w-full mr-5 mb-16 max-w-screen-lg'>
   
           { renderView ()}
 
