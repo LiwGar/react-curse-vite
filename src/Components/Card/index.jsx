@@ -18,7 +18,6 @@ const Card = (data) => {
         context.setCartProducts([...context.cartProducts, productData])
         context.closeProductDetail()
         context.openCheckOutSideMenu()
-        console.log("Cart: ", context.cartProducts)
     }
 
     const renderIcon = (id) => {
@@ -52,8 +51,8 @@ const Card = (data) => {
         <div className="bg-white cursor-pointer w-64 h-68 rounded-lg" 
             onClick={() => showProduct(data.data)} >
             <figure className="relative mb-2 w-full h-4/5">
-                <span alt="categoryCard" className="absolute bottom-0 left-0 m-2 px-3 py-0.5 bg-violet-400 rounded-lg text-black text-xs">{data.data.category}</span>
-                <img alt="imgCard" className="w-full h-full object-cover rounded-lg" src={data.data.image}/>
+                <span alt="categoryCard" className="absolute bottom-0 left-0 m-2 px-3 py-0.5 bg-violet-400 rounded-lg text-black text-xs">{data.data.category.name}</span>
+                <img alt={data.data.title} className="w-full h-full object-cover rounded-lg" src={data.data.images[0]}/>
                 {renderIcon(data.data.id)}
             </figure>
             <p className="flex justify-between">

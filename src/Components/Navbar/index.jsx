@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
         <nav className="flex justify-between items-center fixed z-10 w-full py-3 px-7 top-0 text-base
-                      text-black bg-gradient-to-r from-green-500 to-violet-600">
+                      text-black bg-gradient-to-r from-green-500 to-violet-600 shadow-sm shadow-slate-700">
             <ul className="flex items-center gap-4">
                 <li className="font-extrabold text-xl italic text-black">
                     <NavLink to='/'>
@@ -19,43 +19,59 @@ const Navbar = () => {
                 </li>
                 <li>
                     <NavLink to='/'
+                        onClick={() => context.setSearchByCategory('')}
                         className={({ isActive }) => 
                         isActive ? activeStyle : undefined}>
                         All
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/clothes'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined}>
+                    <NavLink
+                        to='/clothes'
+                        onClick={() => context.setSearchByCategory('clothes')}
+                        className={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                        }>
                         Clothes
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/electronics'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined}>
+                    <NavLink
+                        to='/shoes'
+                        onClick={() => context.setSearchByCategory('shoes')}
+                        className={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                        }>
+                        Shoes
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink
+                        to='/electronics'
+                        onClick={() => context.setSearchByCategory('electronics')}
+                        className={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                        }>
                         Electronics
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/furnitures'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined}>
-                        Funitures
+                    <NavLink
+                        to='/furniture'
+                        onClick={() => context.setSearchByCategory('furniture')}
+                        className={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                        }>
+                        Furniture
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/toys'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined}>
-                        Toys
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/others'
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined}>
+                    <NavLink
+                        to='/others'
+                        onClick={() => context.setSearchByCategory('others')}
+                        className={({ isActive }) =>
+                        isActive ? activeStyle : undefined
+                        }>
                         Others
                     </NavLink>
                 </li>
@@ -65,21 +81,21 @@ const Navbar = () => {
                     satoshinakamoto@email.com
                 </li>
                 <li>
-                    <NavLink to='/my-orders'
+                    <NavLink to="/my-orders"
                         className={({ isActive }) => 
                         isActive ? activeStyle : undefined}>
                         My Orders
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/my-account'
+                    <NavLink to="/my-account"
                         className={({ isActive }) => 
                         isActive ? activeStyle : undefined}>
                         My Account
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/sign-in'
+                    <NavLink to="/sign-in"
                         className={({ isActive }) => 
                         isActive ? activeStyle : undefined}>
                         Sign in

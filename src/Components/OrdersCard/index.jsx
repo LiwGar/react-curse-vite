@@ -5,7 +5,7 @@ const OrdersCard = props => {
     return (
 
      <div  className="flex justify-between w-80 items-center mb-4 border border-violet-600
-            bg-white rounded-lg p-4">
+            shadow-sm shadow-violet-600  bg-white rounded-lg p-4">
        <div className="flex justify-between w-full">
           <p className="flex flex-col">
             <span className="font-semibold">19.09.23</span>

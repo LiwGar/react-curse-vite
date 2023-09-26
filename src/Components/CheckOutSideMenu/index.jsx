@@ -28,7 +28,7 @@ const CheckOutSideMenu= () => {
     return (
         /*{context.isProductDetailOpen ? "flex" : "hidden" } significa que si tu valor es true (abierto) voy a colocarle flex, de lo contrario si es falso (cerrado) voy a colocarle hidden */
         <aside className= {`${context.isCheckOutSideMenuOpen ? "flex" : "hidden" } checkOutSideMenu flex-col 
-                fixed right-0 border border-violet-600 rounded-lg`}>
+                fixed right-0 border border-violet-600 shadow-lg shadow-violet-600  rounded-lg`}>
             <div className="flex justify-between items-center p-4">
                 <h2 alt="titleProductDetail" className="font-bold text-lg">My Order</h2>
                 <button>
@@ -47,22 +47,22 @@ const CheckOutSideMenu= () => {
                         key={product.id}
                         id={product.id}
                         title={product.title}
-                        imageUrl={product.image}
+                        imageUrl={product.images}
                         price={product.price}
                         handleDelete={handleDelete}
                         />
                     ))
                 }
             </div>
-            <div className="px-4 mb-6">
+            <div className="px-6 mb-6">
                 <p className="flex justify-between items-center font-bold mb-6">
                     <span>Total</span>
-                    <span>${totalPrice(context.cartProducts)}</span>
+                    <span className="mr-3">${totalPrice(context.cartProducts)}</span>
                 </p>
                 { handleCheckout && 
                     <Link to= "/my-orders/last">
                         <button onClick={() => handleCheckout()}
-                                className="w-full py-3 bg-violet-600 text-white font-bold">
+                                className="w-[95%] mx-2 py-3  bg-violet-600 text-white font-bold">
                             Checkout
                         </button>  
                     </Link> 
