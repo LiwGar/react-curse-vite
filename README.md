@@ -1,15 +1,22 @@
-# React + Vite
+# Curso de React.js con Vite.js y TailwindCSS.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ruta Full Stack Developer con JavaScript con Platzi
 
-Currently, two official plugins are available:
+Hola!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh.
+El objetivo principal del curso fue, aprender a construir un E-commerce o Tienda Online con React.js.
+Integrando Vite.js para el entorno de desarrollo, TailwindCSS para el manejo de estilos y React Router 
+DOM para las rutas y navegación. y posteriormente desplegarla. 
 
-  
+En este proyecto se trabajó con componentes, props, estilos CSS, estados y efectos de React para visualizar los productos, órdenes de compra y filtrado por categorías, y consumimos la Fake Store de Platzi. 
 
-#🚀 Pasos para hacer el deploy en Github 🚀
+Comparto el proyecto finalizado del curso a través del siguiente link, https://liwgar.github.io/react-curse-vite/
+el cual está a disposición para que sea manipulado y sea puesto a prueba. 
+
+Muchas Gracias Platzi. 
+
+
+🚀 Pasos para hacer el deploy en Github 🚀
  
 
 - Ir a la terminal, cambiar a la rama main (que es la que queremos hacer deploy):
@@ -75,3 +82,13 @@ opción de la rama gh-pages y la carpeta raíz: /root.
 Después de unos minutos debe aparecer la dirección del despliegue. 🙏
  
 Al entrar a la url, debe estar el proyecto funcionando, probar con todas las funciones. ✌️
+
+
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh.
