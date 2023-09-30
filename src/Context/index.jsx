@@ -3,95 +3,133 @@ import { createContext, useState, useEffect } from "react";
 
 export const ShoppingCartContext = createContext();
 
+
+// Variables Account and Sign Out
+export const initializeLocalStorage = () => {
+
+  const accountInLocalStorage = localStorage.getItem("account");
+
+  const signOutInLocalStorage = localStorage.getItem("sign-out");
+  
+  let parsedAccount
+
+  let parsedSignOut
+
+  if(!accountInLocalStorage) {
+
+    localStorage.setItem("account", JSON.stringify({}));
+    parsedAccount = {}
+
+  }else{
+
+    parsedAccount = JSON.parse(accountInLocalStorage);
+
+  }
+
+  if(!signOutInLocalStorage) {
+
+    localStorage.setItem("sign-out", JSON.stringify(false));
+    parsedSignOut = false
+
+  }else{
+
+    parsedSignOut = JSON.parse(signOutInLocalStorage);
+
+  }
+
+}
+
 export const ShoppingCartProvider = ({children}) => {
 
-    const [count, setCount] = useState(0); /* Shopping Cart, contador*/
+  //My Account
+  const [account, setAccount] = useState({});
+
+  //SignOut
+  const [signOut, setSignOut] = useState(false);
+
+  /* Shopping Cart, contador*/
+  const [count, setCount] = useState(0); 
     
-   
-    //Aside Product Detail
-    const [isProductDetailOpen, setIsProductDetailOpen] = useState(false); /* Aside Product Detail, abrir/cerrar*/
+  //Aside Product Detail
+  const [isProductDetailOpen, setIsProductDetailOpen] = useState(false); 
 
-    const openProductDetail = () => setIsProductDetailOpen(true); /* Aside Product Detail, abrir/cerrar*/
+  /* Aside Product Detail, abrir/cerrar*/
+  const openProductDetail = () => setIsProductDetailOpen(true); 
 
-    const closeProductDetail = () => setIsProductDetailOpen(false); /* Aside Product Detail, abrir/cerrar*/
+  /* Aside Product Detail, abrir/cerrar*/
+  const closeProductDetail = () => setIsProductDetailOpen(false); 
 
+  //My Order
+  const [isCheckOutSideMenuOpen, setIsCheckOutSideMenuOpen] = useState(false); 
 
-    //My Order
-    const [isCheckOutSideMenuOpen, setIsCheckOutSideMenuOpen] = useState(false); /* My Order, abrir/cerrar*/
+  /* My Order, abrir/cerrar*/
+  const openCheckOutSideMenu = () => setIsCheckOutSideMenuOpen(true); 
 
-    const openCheckOutSideMenu = () => setIsCheckOutSideMenuOpen(true); /* My Order, abrir/cerrar*/
+  /* My Order, abrir/cerrar*/
+  const closeCheckOutSideMenu = () => setIsCheckOutSideMenuOpen(false); 
 
-    const closeCheckOutSideMenu = () => setIsCheckOutSideMenuOpen(false); /* My Order, abrir/cerrar*/
+  //Product Detail, mostrar detalle del producto*/
+  const [productToShow, setProductToShow] = useState({}); 
 
+  //Shopping Cart, agregar prductos al carrito*/ 
+  const [cartProducts, setCartProducts] = useState([]); 
 
-    //Product Detail
-    const [productToShow, setProductToShow] = useState({}); /* Product Detail, mostrar detalle del producto*/
+  //Order
+  const [order, setOrder] = useState([]);
 
+  //Get Products
+  const [items, setItems] = useState(null) 
     
-    //Shopping Cart 
-    const [cartProducts, setCartProducts] = useState([]); /* Shopping Cart, agregar prductos al carrito*/
+  const [filteredItems, setFilteredItems] = useState(null); 
+
+  //Get product by title
+  const [searchByTitle, setSearchByTitle] = useState(null);
+
+  //get product by category
+  const [searchByCategory, setSearchByCategory] = useState(null);
 
 
-    //Order
-    const [order, setOrder] = useState([])
+    useEffect (() => {
 
+      fetch('https://api.escuelajs.co/api/v1/products')
+      .then(response => response.json()) 
+      .then(data => setItems(data)) 
+      }, [])
 
-    //Get Products
-    const [items, setItems] = useState(null) 
+  //Filtered Items by title
+  const filteredItemsByTitle = (items, searchByTitle) => {
 
-
+    return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()));
+  }
     
-    const [filteredItems, setFilteredItems] = useState(null); 
+  //Filtered Items by category
+  const filteredItemsByCategory = (items, searchByCategory) => {
 
-    
-    //Get product by title
-    const [searchByTitle, setSearchByTitle] = useState(null);
+    return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()));
+  }
 
+  const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
 
-    //get product by category
-    const [searchByCategory, setSearchByCategory] = useState(null);
+    if (searchType === 'BY_TITLE') {
 
-
-        useEffect (() => {
-
-            fetch('https://api.escuelajs.co/api/v1/products')
-            .then(response => response.json()) 
-            .then(data => setItems(data)) 
-        }, [])
-
-
-    
-        //Filtered Items by title
-    const filteredItemsByTitle = (items, searchByTitle) => {
-
-        return items?.filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()));
+      return filteredItemsByTitle(items, searchByTitle)
     }
     
-    
-    //Filtered Items by category
-    const filteredItemsByCategory = (items, searchByCategory) => {
+    if (searchType === 'BY_CATEGORY') {
 
-        return items?.filter(item => item.category.name.toLowerCase().includes(searchByCategory.toLowerCase()));
+      return filteredItemsByCategory(items, searchByCategory)
     }
-
-
-    const filterBy = (searchType, items, searchByTitle, searchByCategory) => {
-        if (searchType === 'BY_TITLE') {
-          return filteredItemsByTitle(items, searchByTitle)
-        }
     
-        if (searchType === 'BY_CATEGORY') {
-          return filteredItemsByCategory(items, searchByCategory)
-        }
-    
-        if (searchType === 'BY_TITLE_AND_CATEGORY') {
-          return filteredItemsByCategory(items, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
-        }
-    
-        if (!searchType) {
-          return items
-        }
+    if (searchType === 'BY_TITLE_AND_CATEGORY') {
+  
+      return filteredItemsByCategory(items, searchByCategory).filter(item => item.title.toLowerCase().includes(searchByTitle.toLowerCase()))
     }
+    
+    if (!searchType) {
+    
+      return items
+    }
+  }
 
     useEffect(() => {
         if (searchByTitle && searchByCategory) setFilteredItems(filterBy('BY_TITLE_AND_CATEGORY', items, searchByTitle, searchByCategory))
@@ -103,6 +141,7 @@ export const ShoppingCartProvider = ({children}) => {
     console.log('filteredItems: ', filteredItems)
        
     return ( /* dentro del proveedor con value, proveemos a toda la app con la informacion del contador carrito*/
+
     <ShoppingCartContext.Provider value={{
         count, setCount,
         openProductDetail, closeProductDetail,
@@ -115,7 +154,9 @@ export const ShoppingCartProvider = ({children}) => {
         items, setItems,
         searchByTitle, setSearchByTitle,
         filteredItems, searchByCategory,
-        setSearchByCategory
+        setSearchByCategory,
+        account, setAccount,
+        signOut, setSignOut
       }}>
             {children}
         </ShoppingCartContext.Provider>

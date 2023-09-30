@@ -8,6 +8,13 @@ const Navbar = () => {
 
     const activeStyle =  "text-black font-bold";
 
+    // SignOut Function 
+    const handleSignOut = () => {
+      const stringifiedSignOut = JSON.stringify(true)
+      localStorage.setItem("sign-out", stringifiedSignOut)
+      context.setSignOut(true)
+    }
+
     return (
         <nav className="flex justify-between items-center fixed z-10 w-full py-3 px-7 top-0 text-base
                       text-black bg-gradient-to-r from-green-500 to-violet-600 shadow-sm shadow-slate-700">
@@ -95,10 +102,12 @@ const Navbar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/sign-in"
-                        className={({ isActive }) => 
-                        isActive ? activeStyle : undefined}>
-                        Sign in
+                    <NavLink
+                        to='/sign-in'
+                        className={({ isActive }) =>
+                        isActive ? activeStyle : undefined}
+                        onClick={() => handleSignOut()}>
+                        Sign Out
                     </NavLink>
                 </li>
                 <li className="flex justify-center items-center text-sm font-bold">
