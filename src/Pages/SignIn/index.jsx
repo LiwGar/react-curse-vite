@@ -23,16 +23,16 @@ function SignIn() {
   const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalStage;
 
   const handleSignIn = () => {
-    const stringifiedSignOut = JSON.stringify(false)
-    localStorage.setItem("sign-out", stringifiedSignOut)
-    context.setSignOut(false)
+    const stringifiedSignOut = JSON.stringify(false);
+    localStorage.setItem("sign-out", stringifiedSignOut);
+    context.setSignOut(false);
 
     // Redirect
     return <Navigate replace to={"/"}/>
   }
 
   const createAnAccount = () => {
-    const formData = new FormData(form.current)
+    const formData = new FormData(form.current);
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
@@ -40,12 +40,12 @@ function SignIn() {
     }
 
     // Create account
-    const stringifiedAccount = JSON.stringify(data)
-    localStorage.setItem("account", stringifiedAccount)
+    const stringifiedAccount = JSON.stringify(data);
+    localStorage.setItem("account", stringifiedAccount);
     context.setAccount(data)
 
     // Sign in
-    handleSignIn()
+    handleSignIn();
   }
 
   const renderLogIn = () => {
@@ -92,7 +92,7 @@ function SignIn() {
               id='name'
               name='name'
               defaultValue={parsedAccount?.name}
-              placeholder='Peter'
+              placeholder='Satoshi'
               className='placeholder:font-light placeholder:text-sm
               placeholder:text-black/60 py-2 px-4 focus:outline-none
               border border-violet-600'
@@ -105,7 +105,7 @@ function SignIn() {
               id='email'
               name='email'
               defaultValue={parsedAccount?.email}
-              placeholder='email@email.com'
+              placeholder='example@email.com'
               className='placeholder:font-light placeholder:text-sm
               placeholder:text-black/60 py-2 px-4 focus:outline-none
               border border-violet-600'
