@@ -55,15 +55,15 @@ const CheckOutSideMenu= () => {
                     ))
                 }
             </div>
-            <div className="px-6 mb-6">
+            <div className="px-6 mb-6 p-0">
                 <p className="flex justify-between items-center font-bold mb-6">
-                    <span>Total</span>
+                    <span className="ml-[0]">Total</span>
                     <span className="mr-3">${totalPrice(context.cartProducts)}</span>
                 </p>
                 { handleCheckout && 
                     <Link to= "/my-orders/last">
                         <button onClick={() => handleCheckout()}
-                                className="w-[95%] mx-2 py-3  bg-violet-600 text-white font-bold">
+                                className="w-[100%] py-3 bg-violet-600 text-white font-bold tracking-wider">
                             Checkout
                         </button>  
                     </Link> 

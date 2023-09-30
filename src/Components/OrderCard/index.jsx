@@ -15,7 +15,7 @@ const OrderCard = props => {
         </div>
         <div className="flex items-center gap-2">
             <p className="font-bold text-sm" alt="priceProduct" >
-               {price}
+               ${price}
             </p>
             {
                 handleDelete &&

@@ -1,5 +1,5 @@
 import { useContext, useState, useRef } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { ShoppingCartContext } from "../../Context";
 import Layout from '../../Components/Layout';
 
@@ -22,13 +22,30 @@ function SignIn() {
   const noAccountInLocalStage = context.account ? Object.keys(context.account).length === 0 : true;
   const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalStage;
 
-  const createAccount = () => {
+  const handleSignIn = () => {
+    const stringifiedSignOut = JSON.stringify(false)
+    localStorage.setItem("sign-out", stringifiedSignOut)
+    context.setSignOut(false)
+
+    // Redirect
+    return <Navigate replace to={"/"}/>
+  }
+
+  const createAnAccount = () => {
     const formData = new FormData(form.current)
     const data = {
       name: formData.get("name"),
       email: formData.get("email"),
       password: formData.get("password")
     }
+
+    // Create account
+    const stringifiedAccount = JSON.stringify(data)
+    localStorage.setItem("account", stringifiedAccount)
+    context.setAccount(data)
+
+    // Sign in
+    handleSignIn()
   }
 
   const renderLogIn = () => {
@@ -46,8 +63,9 @@ function SignIn() {
         <Link
           to="/">
           <button
-            className='bg-violet-600 disabled:bg-black/40 text-white w-full py-3 mt-4 mb-2 font-bold'
-            disabled={!hasUserAnAccount}> 
+            className='bg-violet-600 disabled:bg-black/40 text-white w-full py-3 mt-4 mb-2 font-bold tracking-wider'
+            disabled={!hasUserAnAccount}
+            onClick={() => handleSignIn()}> 
               Log in
           </button>
           </Link>
@@ -55,7 +73,7 @@ function SignIn() {
           <a className='font-light text-xs underline underline-offset-3' href='/'>Forgot my password</a>
         </div>
           <button
-            className='border  border-violet-600 disabled:text-black/40  disabled:border-violet/40 py-3 mt-6 font-bold'
+            className='border  border-violet-600 disabled:text-black/40  disabled:border-black/40 py-3 mt-6 font-bold tracking-wider'
             disabled={hasUserAnAccount}
             onClick={() => setView("create-user-info")}>
               Sign up
@@ -108,8 +126,8 @@ function SignIn() {
         </div>
         <Link to="/">
           <button 
-            className='w-full py-3 bg-violet-600 text-white font-bold'
-            onClick={() => createAccount()}
+            className='w-full py-3 bg-violet-600 text-white font-bold tracking-wider'
+            onClick={() => createAnAccount()}
           >
             Create
           </button>
