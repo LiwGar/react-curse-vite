@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { ShoppingCartContext } from "../../Context/index";
-import ShoppingCart from "../ShoppingCart";
+import ShoppingCart from "../ShoppingCart/index";
 
 const Navbar = () => {
 
@@ -19,7 +19,7 @@ const Navbar = () => {
 
     const parsedAccount = JSON.parse(account);
     
-    // Has an account
+    // Has an account 
     const noAccountInLocalStorage = parsedAccount ? Object.keys(parsedAccount).length === 0 : true;
     const noAccountInLocalStage = context.account ? Object.keys(context.account).length === 0 : true;
     const hasUserAnAccount = !noAccountInLocalStorage || !noAccountInLocalStage;

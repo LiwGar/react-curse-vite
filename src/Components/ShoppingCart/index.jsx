@@ -7,7 +7,7 @@ const ShoppingCart = () => {
     const context = useContext(ShoppingCartContext);
 
     const openCheckOutSideMenu = () => {
-        context.openCheckout();
+        context.openCheckOutSideMenu ();
         context.closeProductDetail();
     }
 
@@ -16,7 +16,7 @@ const ShoppingCart = () => {
         <div className='flex relative items-center gap-0.5'
             onClick={() => openCheckOutSideMenu()}>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" 
-            className="w-6 h-6">
+            className="w-6 h-6 fill-none stroke-black cursor-pointer">
             
                         <path strokeLinecap="round" strokeLinejoin="round" 
                         d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45

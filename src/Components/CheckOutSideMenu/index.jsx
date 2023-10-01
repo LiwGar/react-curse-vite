@@ -6,7 +6,7 @@ import { totalPrice } from "../../utils/index"
 import "./CheckOutSideMenu.css";
 
 const CheckOutSideMenu= () => {
-
+    
     const context = useContext(ShoppingCartContext); /*Quiero que leas el estado global*/
 
     const handleDelete = (id) => {

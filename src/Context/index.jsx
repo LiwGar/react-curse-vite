@@ -4,7 +4,7 @@ import { createContext, useState, useEffect } from "react";
 export const ShoppingCartContext = createContext();
 
 
-// Variables Account and Sign Out
+// Variables Account and Sign Out 
 export const initializeLocalStorage = () => {
 
   const accountInLocalStorage = localStorage.getItem("account");
