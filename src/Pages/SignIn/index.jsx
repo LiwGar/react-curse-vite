@@ -63,17 +63,17 @@ function SignIn() {
         <Link
           to="/">
           <button
-            className='bg-violet-600 disabled:bg-black/40 text-white w-full py-3 mt-4 mb-2 font-bold tracking-wider'
+            className='bg-violet-600 disabled:bg-black/40 text-white w-full py-3 mt-4 mb-2 font-bold tracking-wider shadow-sm shadow-black/80'
             disabled={!hasUserAnAccount}
             onClick={() => handleSignIn()}> 
               Log in
           </button>
           </Link>
         <div className='text-center'> 
-          <a className='font-light text-xs underline underline-offset-3' href='/'>Forgot my password</a>
+          <a className='font-light text-xs underline underline-offset-3' href='/my-account'>Forgot my password</a>
         </div>
           <button
-            className='border  border-violet-600 disabled:text-black/40  disabled:border-black/40 py-3 mt-6 font-bold tracking-wider'
+            className='border  border-violet-600 disabled:text-black/40  disabled:border-black/40 py-3 mt-6 font-bold tracking-wider shadow-sm shadow-black/80'
             disabled={hasUserAnAccount}
             onClick={() => setView("create-user-info")}>
               Sign up
@@ -95,7 +95,7 @@ function SignIn() {
               placeholder='Satoshi'
               className='placeholder:font-light placeholder:text-sm
               placeholder:text-black/60 py-2 px-4 focus:outline-none
-              border border-violet-600'
+              border border-violet-600 shadow-sm shadow-black/40'
             />
         </div>
         <div className='flex flex-col gap-1'>
@@ -108,7 +108,7 @@ function SignIn() {
               placeholder='example@email.com'
               className='placeholder:font-light placeholder:text-sm
               placeholder:text-black/60 py-2 px-4 focus:outline-none
-              border border-violet-600'
+              border border-violet-600 shadow-sm shadow-black/40'
             />
         </div>
         <div className='flex flex-col gap-1'>
@@ -121,12 +121,12 @@ function SignIn() {
               placeholder='*******'
               className='placeholder:font-light placeholder:text-sm
               placeholder:text-black/60 py-2 px-4 focus:outline-none
-              border border-violet-600'
+              border border-violet-600 shadow-sm shadow-black/40'
             />
         </div>
         <Link to="/">
           <button 
-            className='w-full py-3 bg-violet-600 text-white font-bold tracking-wider'
+            className='w-full py-3 bg-violet-600 text-white font-bold tracking-wider shadow-sm shadow-black/80'
             onClick={() => createAnAccount()}
           >
             Create
@@ -140,7 +140,10 @@ function SignIn() {
   
     return (
       <Layout>
-        <h1 className='font-medium text-lg text-center mb-8 w-80'>Welcome</h1>
+        <div className='flex relative w-90 justify-center gap-2'>
+          <h1 className='font-medium text-lg text-center'>Welcome to </h1>
+          <h2 className="flex font-extrabold text-lg mb-6 italic">SHOPstr</h2>
+        </div>
         {renderView()}
       </Layout>
     )

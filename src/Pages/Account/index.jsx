@@ -43,7 +43,7 @@ function MyAccount() {
           <span>{parsedAccount?.email}</span>
         </p>
         <button
-          className=' bg-violet-600 text-white font-bold tracking-wider mt-6 py-3'
+          className=' bg-violet-600 text-white font-bold tracking-wider mt-6 py-3 shadow-sm shadow-black/80'
           onClick={() => setView('edit-user-info')}>
           Edit
         </button>
@@ -63,7 +63,7 @@ function MyAccount() {
             name="name"
             defaultValue={parsedAccount.name}
             placeholder="Satoshi"
-            className='border border-violet-600 placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4'
+            className='border border-violet-600 placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4 shadow-sm shadow-black/40'
           />
         </div>
         <div className='flex flex-col gap-1'>
@@ -74,7 +74,7 @@ function MyAccount() {
             name="email"
             defaultValue={parsedAccount.email}
             placeholder="hi@helloworld.com"
-            className='border border-violet-600 placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4'
+            className='border border-violet-600 placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4 shadow-sm shadow-black/40'
           />
         </div>
         <div className='flex flex-col gap-1'>
@@ -85,11 +85,11 @@ function MyAccount() {
             name="password"
             defaultValue={parsedAccount.password}
             placeholder="*******"
-            className='border border-violet-600 placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4'
+            className='border border-violet-600 placeholder:font-light placeholder:text-sm placeholder:text-black/60 focus:outline-none py-2 px-4 shadow-sm shadow-black/40'
           />
         </div>
         <button
-          className='w-full  py-3 bg-violet-600 text-white font-bold tracking-wider'
+          className='w-full  py-3 bg-violet-600 text-white font-bold tracking-wider shadow-sm shadow-black/80'
           onClick={() => {setView('user-info'), editAccount()}}>
           Edit
         </button>
