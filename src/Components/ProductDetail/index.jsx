@@ -21,7 +21,7 @@ const ProductDetail = () => {
                 </button>
             </div>
             <figure className="p-2">
-                <img className="w-60 h-80 rounded-xl mx-auto"
+                <img className="w-66 h-80 rounded-xl mx-auto object-cover p-1"
                      src={context.productToShow.images}
                      alt={context.productToShow.title}/>
                      

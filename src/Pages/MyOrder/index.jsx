@@ -25,7 +25,7 @@ function MyOrder() {
               </svg>
             </button>
           </Link>
-          <h1>My Order</h1>
+          <h1 className="font-medium text-lg text-center">My Order</h1>
         </div>
 
         <div className="flex flex-col py-14 w-[48%]">
